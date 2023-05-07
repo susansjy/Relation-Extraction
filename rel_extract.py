@@ -10,10 +10,10 @@ from sklearn.model_selection import GridSearchCV
 
 
 # read in the data
-train_data = json.load(open("sents_parsed_train.json", "r"))
-test_data = json.load(open("sents_parsed_test.json", "r"))
+train_data = json.load(open("data/sents_parsed_train.json", "r"))
+test_data = json.load(open("data/sents_parsed_test.json", "r"))
 
-def write_output_file(relations, filename = "output.csv"):
+def write_output_file(relations, filename = "data/output.csv"):
     """The list of relations into a csv file for the evaluation script
 
     Args:
@@ -121,8 +121,8 @@ test_X = processingX(test_data, 'test')
 pred_test = lr_model.predict(test_X)
 
 
-# Remove this and write out the relations you extracted (obviously don't hard code them)
-country_names = open("country_names.txt", "r").read()
+# Write out the relations extracted
+country_names = open("data/country_names.txt", "r").read()
 countries = country_names.split('\n')
 
 # get dependency relationships
